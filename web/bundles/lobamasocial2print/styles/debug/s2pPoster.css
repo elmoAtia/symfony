@@ -1,0 +1,567 @@
+/* @override https://lobama.ichduersie.es/bundles/lobamaposter/styles/debug/s2pPoster.css */
+
+/*! Social2Print Poster App 1.0a | @author:mail[at]andreasklein.org | http://lobama.com !*/ 
+/*
+ * Social2print Misc Poster Styles
+ * 
+ * @name:               s2pPoster.css
+ * @author:             mail[at]andreasklein.org
+ * @date:               2012.03.28
+ * @copyright:          by Lobama, Andreas Klein
+ * @appVersion:         belina
+ * @fileVersion:        1.0a
+ * 
+ */
+         
+body 
+{ 
+	font-size: 13px; 
+	line-height: 1.5; 
+	letter-spacing: 0.3px;
+	color: #000; 
+	font-family: 'Open Sans', Arial, sans-serif; 
+	font-weight: 300; 
+	background-color: #fff;
+}
+
+#container { width: 760px; height: 100%; margin: 30px auto 0 auto; position: relative }
+
+
+/* =============================================================================
+   MISCELLANEOUS STYLES
+   ========================================================================== */
+a:hover {text-decoration: underline }
+h1 { margin: 0; font-size: 40px; font-weight: 300; color: #382C2E; text-shadow: 1px 1px 3px #fff; }
+h2 { margin: 0; font-size: 16px; font-weight: 600; }
+h3 { margin: 0; font-size: 14px; font-weight: 300 }
+p { margin: 0; padding: 0; }
+.button 
+{ 
+    position: relative;
+    display: block;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 1px 1px 1px #000;
+    text-align: center;
+    padding: 6px 16px 7px 5px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    font-size: 16px;
+    width: 200px;
+    -webkit-border-radius: 4px;
+   -moz-border-radius: 4px;
+             -o-border-radius: 4px;
+        border-radius: 4px;
+    -webkit-box-shadow: 2px 2px 3px #bbb; 
+   -moz-box-shadow: 2px 2px 3px #bbb;
+             -o-box-shadow: 2px 2px 3px #bbb;
+        box-shadow: 2px 2px 2px #bbb;
+    background-color: #ac0641;
+    background-image: -webkit-linear-gradient(90deg, rgba(255,0,0,0), rgba(212,8,80, 0.8));
+    background-image: -moz-linear-gradient( 90deg, rgba(255,0,0,0), rgba(212,8,80, 0.8)); 
+    background-image: -o-linear-gradient( 90deg, rgba(255,0,0,0), rgba(212,8,80, 0.8)); 
+}
+.button:after 
+{
+    width: 9px;
+    height: 16px;
+    margin: -9px 7px 0 12px;
+    background: url(../../gfx/sprite_icon_elements.png) no-repeat -59px -410px transparent;
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 7px;
+    
+}
+.button:hover 
+{ 
+	text-decoration: none !important;
+	color: #fff !important;
+	background-image: -webkit-linear-gradient(-90deg, rgba(255,0,0,0), rgba(212,8,80, 0.8));
+        background-image: -moz-linear-gradient( -90deg, rgba(255,0,0,0), rgba(212,8,80, 0.8)); 
+        background-image: -o-linear-gradient( -90deg, rgba(255,0,0,0), rgba(212,8,80, 0.8)); 
+}  
+.button:active 
+{      
+	background-image: -webkit-linear-gradient(-90deg, rgba(255,0,0,0), rgba(212,8,80, 0.8));
+        background-image: -moz-linear-gradient( -90deg, rgba(255,0,0,0), rgba(212,8,80, 0.8)); 
+        background-image: -o-linear-gradient( -90deg, rgba(255,0,0,0), rgba(212,8,80, 0.8)); 
+	-webkit-box-shadow: 2px 2px 2px #bbb, inset 0 0 10px 2px rgba(0, 0, 0, .2);  
+       -moz-box-shadow: 2px 2px 2px #bbb, inset 0 0 10px 2px rgba(0, 0, 0, .2); 
+		 -o-box-shadow: 2px 2px 2px #bbb, inset 0 0 10px 2px rgba(0, 0, 0, .2); 
+            box-shadow: 2px 2px 2px #bbb, inset 0 0 10px 2px rgba(0, 0, 0, .2);
+}
+
+.action 
+{
+	position: relative;
+}
+
+.icon 
+{ 
+    background-image: url(../../gfx/sprite_icon_elements.png);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    opacity: 1;
+    -webkit-transition: opacity .3s linear;
+    -moz-transition: opacity .3s linear;
+    -o-transition: opacity .3s linear;
+    transition: opacity .3s linear;
+
+}
+.icon:hover { opacity: .6 }
+
+
+/*
+ *  The ToolTip
+ */
+#tooltip 
+{
+    background-color: #003F7D;
+    border: 1px solid #ccc; 
+    border-radius: 4px 4px 4px 4px;
+    padding: 10px;
+    position: absolute;
+    z-index: 9999; 
+    color: #fff !important; 
+    font-size: 12px !important;
+    min-width: 200px;
+    max-width: 300px; 
+    -webkit-animation-name: fadeIn;
+    -webkit-animation-duration: .5s;
+    -moz-animation-name: fadeIn;
+    -moz-animation-duration: .5s;
+    -o-animation-name: fadeIn;
+    -o-animation-duration: .5s;
+    text-align: center;
+} 
+
+/* Loader **/
+
+.bigLoader {
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.7);
+        position: absolute;
+	top: 0px; left: 0px;
+	z-index: 9000;
+	border-radius: 8px 8px 8px 8px;
+}
+	.bigLoader .ico {
+		background: url(../../gfx/spinnerBig.gif) no-repeat scroll 0 0 transparent;
+		position: absolute;
+		top: 100px;
+		left: 50%;
+		width: 	64px;
+		height: 64px;
+		margin: 0 0 0 -32px;
+	}
+.smallLoader {
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.9);
+        position: absolute;
+	top: -3px; left: -3px;
+	z-index: 9000;
+	padding: 3px;
+}
+	.smallLoader .ico {
+		background: url(../../gfx/spinner.gif) no-repeat scroll 0 0 transparent;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 	50px;
+		height: 50px;
+		margin: -25px 0 0 -25px;
+	}
+	
+.tinyLoader {
+	width: 100%;
+	height: 100%;
+	background: none;
+    position: absolute;
+	top: -3px; left: -3px;
+	z-index: 9000;
+	padding: 3px;
+}
+	.tinyLoader .ico {
+		background: url(../../gfx/spinnerSmall.gif) no-repeat scroll 0 0 transparent;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 	16px;
+		height: 16px;
+		margin: -8px 0 0 -8px;
+	}
+
+#popupOverlay {
+	width: 100%;
+	height: 120%;
+	position: fixed;
+	background-color: #000;
+	opacity: 0.7; 
+	filter: alpha(opacity=70);
+	z-index: 8888; 
+	margin-top: -10%;
+	padding: 0;
+	display: none;
+}
+
+#popup {
+	display: none;
+	width: 400px;
+	min-height: 100px;
+	background: #FFF;
+	border-radius: 8px 8px 8px 8px;
+	position: fixed;
+	top: 50%; left: 50%;
+	margin: -150px 0 0 -200px;
+	overflow: hidden;
+	z-index: 9999;
+}
+			
+	#popup .head {
+		border-bottom-color: #e5e5e5;
+		border-bottom-style: solid;
+		border-bottom-width: 1px;
+		height: 40px;
+	}
+		
+		#popup .head .title {
+			float: left;
+			padding-top: 11px;
+			padding-left: 20px;
+			font-weight: bold;
+			font-size: 18px;
+			height: 18px;
+            font-family: 'Waiting for the Sunrise', sans-serif; 
+            color: #5c5239
+		}
+		
+		#popup .head .close {
+			float: right;
+			margin: 11px 5px 13px 0;
+			background: url(../../gfx/close.png) no-repeat scroll 0 0 transparent;
+			width: 16px; 
+			height: 16px;	
+			cursor: pointer;
+		}
+		
+	#popup .body {
+		padding: 0;
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+        
+            #popup .body p 
+            {
+                width: 360px;
+                padding: 20px;
+            }
+
+/*
+ * PDF Loading
+ */
+#popup.pdfLoader, .pdfLoader 
+{
+	background: none !important;
+	width: 500px;	
+	margin: -150px 0 0 -250px;
+}
+#popup.pdfLoader .msg, .pdfLoader .msg
+{
+	text-align: center;
+	font-size: 16px;
+    font-family: 'Open Sans', Arial, sans-serif; 
+    color: #fff;
+    width: 100%;
+}
+#popup.pdfLoader .animated, .pdfLoader .animated
+{
+	margin: 20px auto;
+	width: 128px;
+	background: url(../../gfx/process.gif) no-repeat 0 0 transparent;
+}
+
+	
+        
+/* =============================================================================
+   HEADER STYLE DEFINITIONS
+   ========================================================================== */
+.header { width: 100% }
+    .header a { color: #fff } 
+	.header .logo-container 
+	{              
+		width: 100%;
+		height: 28px;
+                padding-top: 7px;
+		background-image: -webkit-linear-gradient(-90deg, rgba(163,159,147,1), rgba(138,133,122,1));
+		background-image: -moz-linear-gradient( -90deg, rgba(163,159,147,1), rgba(138,133,122,1));
+		background-image: -o-linear-gradient( -90deg, rgba(163,159,147,1), rgba(138,133,122,1));
+	}
+    	.header .logo 
+        { 
+            margin: 0 auto; 
+            padding: 8px 10px 0 10px; 
+            background: url(../../gfx/sprite_icon_elements.png) no-repeat -410px -169px transparent;
+            width: 134px;
+            height: 26px;
+            display: block;
+        } 
+    .header .breadcrumb { float: left; padding: 8px 20px 7px 30px; width: 710px; height: 20px; background-color: #EAEAEA; font-size: 15px }  
+              .breadcrumb span { padding-left: 8px } 
+       		.breadcrumb span.arrow { width: 9px; height: 12px; margin: 0  7px 0 12px; background: url(../../gfx/sprite_icon_elements.png) no-repeat -59px -410px transparent } 
+                .breadcrumb a { color: #5c5239; font-weight: 400 }
+			  .breadcrumb .first { background: none !important }
+   			  	.breadcrumb .active { color: #D40850; !important; font-weight: 600 }
+
+
+/* =============================================================================
+   MAIN CONTENT STYLE DEFINITIONS
+   ========================================================================== */    
+.content { width: 100% }
+
+/* =============================================================================
+   FOOTER STYLE DEFINITIONS
+   ========================================================================== */
+.footer { width: 100%; height: 25px; margin: 5px 0; background: #999487}
+    .footer ul {margin-left: 10px; }
+        .footer li {padding: 4px 15px 0 15px; float: left }
+            .footer a { color: #fff; font-weight: 400 }
+        .footer li.back { background: url(../../gfx/base_sprite.png) no-repeat 0 -14px transparent } 
+        
+
+/* =============================================================================
+   LANDING PAGE STYLES
+   ========================================================================== */ 
+.landing { background: url(../../gfx/bg.landing.jpg) no-repeat 0 0 transparent; width: 760px; min-height: 605px }
+    .landing .inner { width: 100%; padding-top: 10px }
+        .landing .inner > div { display: block; float: left }
+        .landing .poster { margin: 10px 20px 0 20px }
+        .landing #welcome { margin-left: 20px }
+        .landing h1 { margin-top: 10px }
+        .landing .teaser-text { width: 450px; margin: 10px 30px 0 0 }
+        .landing .teaser-text ol { list-style-type: decimal; margin: 10px 0 0 30px }
+        .landing .teaser-text ol li { font-size: 24px; padding: 2px 0; font-family: 'Waiting for the Sunrise', sans-serif; color: #5c5239 }
+        .landing .continue { width: 250px; margin: 20px 0 0 0 } 
+        .landing div#arrow-bottom { width: 18px; height: 94px; position: absolute; top: 70px; left: 245px; background: url(../../gfx/sprite_icon_elements.png) no-repeat -51px -15px transparent } 
+    .landing .recent-posters { width: 659px; height: 200px; border: 3px solid #fff; margin: 250px 50px 0 50px; background: url(../../gfx/bg.recentposters.png) no-repeat 0 0 transparent }
+            .recent-posters h3 { font-size: 16px; color: #fff; padding: 5px 0 0 10px }
+            .recent-posters ul { width: 360px; margin: 10px auto 0 auto; }
+                    .recent-posters li { float: left; margin-right: 60px }
+                    .recent-posters li.last { margin: 0 }
+                    .recent-posters li:hover > p { color: #e73805; text-decoration: underline }
+                            .recent-posters  p { text-align: center; padding-top: 3px }  
+			
+/* =============================================================================
+   Product PAGE STYLES
+   ========================================================================== */
+.product { background: url(../../gfx/bg.pattern.jpg) no-repeat 0 0 transparent; width: 760px; height:150px; }
+.product input { cursor:pointer; }
+
+
+/* =============================================================================
+   Options PAGE STYLES
+   ========================================================================== */
+.options { background: url(../../gfx/bg.pattern.jpg) no-repeat 0 0 transparent; width: 760px; height:150px; }
+.options input { cursor:pointer; }
+form fieldset { float:left; }
+form>input { position:absolute; top: 150px; left:5px; }
+
+		
+/* =============================================================================
+   Confirm PAGE STYLES
+   ========================================================================== */ 
+#confirm { background: url(../../gfx/bg.pattern.jpg) no-repeat 0 0 transparent; width: 760px }
+    #confirm .inner { width: 100%; padding: 20px 0 20px 0 }
+        #confirm h1 { width: 100%; margin-left: 30px }
+        #confirm .inner > p { margin: 20px 30px 50px 30px}
+        #confirm .inner > div { position: relative }
+        #confirm div#arrow-right 
+        { 
+            width: 70px;
+            height: 20px;
+            position: absolute;
+            top: 70px;
+            left: 165px;
+            background: url(../../gfx/sprite_icon_elements.png) no-repeat -271px -48px transparent;
+        } 
+        #confirm div.left 
+        {
+            float: left;
+            margin-left: 25px;
+        }
+        #confirm div.right 
+        { 
+            float: right;
+            background: url(../../gfx/bg.confirm.opt.png) no-repeat 0 0 transparent;
+            width: 503px;
+            height: 204px;
+            padding: 10px 10px 10px 15px;
+            margin-top: -6px;
+        }
+        #confirm .right > div 
+        {
+            width: 150px;
+            height: 200px;
+            float: left;
+            margin: 20px 15px 0 0;
+        }
+        #confirm .right .action-img 
+        {
+            background: url(../../gfx/sprite_icon_elements.png) no-repeat 0 0 transparent;
+            width: 65px;
+            height: 65px;
+            margin: 0 auto
+        }
+        #confirm .right > div > p 
+        {
+            font-size: 18px;  
+            font-family: 'Waiting for the Sunrise', sans-serif; 
+            color: #5c5239; 
+            font-weight: 600;
+            text-shadow: 0px 0px 2px #fff;
+            text-align: center;
+            margin-bottom: 20px
+        }
+        #confirm .order .action-img { background-position: -27px -150px !important }
+        #confirm .share .action-img { background-position: -147px -149px !important }
+        #confirm .load .action-img { background-position: -268px -148px !important }
+        
+        #confirm .action .tinyLoader 
+        {
+        	width: 20px;
+        	height: 20px;
+        	right: -3px !important;
+        	top: 3px !important;
+        	left: auto !important;	
+        }
+        #confirm .button 
+        {
+            width: 120px;
+            padding: 5px 5px 7px 5px;
+            margin: 0 auto
+        }
+        #confirm .right > div .complete 
+        {
+            background: url(../../gfx/sprite_icon_elements.png) no-repeat -523px -402px transparent;
+            width: 36px;
+            height: 37px;
+            margin: 0 auto;
+            display: block
+        }
+        
+        
+
+/* =============================================================================
+   Checkout PAGE STYLES
+   ========================================================================== */ 
+#checkout { background: url(../../gfx/bg.pattern.jpg) no-repeat 0 0 transparent; width: 760px; height: 720px }
+    #checkout .inner { width: 100%; padding-top: 20px }
+        #checkout h1 { width: 100%; margin-left: 50px }
+        #poster-formats > div { float: left; position: relative }
+        #poster-formats { margin-left: 50px; }
+        #poster-formats h2 { 
+            font-size: 35px;  
+            font-family: 'Waiting for the Sunrise', sans-serif; 
+            color: #5c5239;  
+            text-shadow: 0px 0px 2px #fff;
+        }
+        #poster-formats .prize 
+        { 
+                position: relative;
+        }
+        #poster-formats .prize span 
+        { 
+                position: absolute;
+                background: url(../../gfx/sprite_icon_elements.png) no-repeat 0 0 transparent; z-index: 2;
+        }
+
+        #xxlPoster 
+        { 
+            background: url(../../gfx/bg.checkout.item.small.png) no-repeat 0 0 transparent;
+            width: 184px;
+            height: 420px;
+            padding: 10px 10px 0 10px;
+            margin: 60px 10px 0 0;
+        } 
+        #xxlPoster .prize span { background-position: -372px -490px; width: 100px; height: 110px; left: -25px; top: 10px }
+
+        #bigPoster 
+        { 
+            background: url(../../gfx/bg.checkout.item.big.png) no-repeat 0 0 transparent;
+            width: 210px;
+            height: 512px;
+            margin: 15px 10px 0 0;
+            padding: 10px 20px 0 20px;
+        }
+        #bigPoster .prize span { background-position:  -119px -479px; width: 130px; height: 130px; left: -25px; top: 10px }
+
+        #basicPoster 
+        { 
+            background: url(../../gfx/bg.checkout.item.small.png) no-repeat 0 0 transparent;
+            width: 184px;
+            height: 420px;
+            padding: 10px 10px 0 10px;
+            margin: 60px 0 0 0;
+        }
+        #basicPoster .prize span { background-position: -247px -490px; width: 100px; height: 110px; left: -25px; top: 10px }
+
+        #xxlPoster .format-size, #basicPoster .format-size { font-size: 15px; font-weight: 400; color: #686767; margin: 5px 0 5px 3px }
+        #xxlPoster .format-desc, #basicPoster .format-desc { font-size: 12px; color: #686767; margin: 5px 0 0 3px }
+        #xxlPoster img, #basicPoster img { margin: 20px 0 10px 30px;-moz-transform: scale(1) rotate(2deg) translate(0px, 0px) skew(0deg, 0deg);
+-webkit-transform: scale(1) rotate(2deg) translate(0px, 0px) skew(0deg, 0deg);
+-o-transform: scale(1) rotate(2deg) translate(0px, 0px) skew(0deg, 0deg);
+-ms-transform: scale(1) rotate(2deg) translate(0px, 0px) skew(0deg, 0deg);
+transform: scale(1) rotate(2deg) translate(0px, 0px) skew(0deg, 0deg); -webkit-box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
+-moz-box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
+box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);}
+        #xxlPoster .button, #basicPoster .button 
+        {
+            font-size: 13px !important;
+            width: 150px;
+            margin: 5px 0 0 7px
+        }
+        #bigPoster h2 { font-size: 48px !important }
+        #bigPoster  .format-size { font-size: 18px; font-weight: 400; color: #686767; margin: 5px 0 5px 3px }
+        #bigPoster  .format-desc { font-size: 14px; color: #686767; margin: 5px 0 0 3px }
+        #bigPoster img { margin: 25px 0 15px 30px; -moz-transform: scale(1) rotate(2deg) translate(0px, 0px) skew(0deg, 0deg);
+-webkit-transform: scale(1) rotate(2deg) translate(0px, 0px) skew(0deg, 0deg);
+-o-transform: scale(1) rotate(2deg) translate(0px, 0px) skew(0deg, 0deg);
+-ms-transform: scale(1) rotate(2deg) translate(0px, 0px) skew(0deg, 0deg);
+transform: scale(1) rotate(2deg) translate(0px, 0px) skew(0deg, 0deg);-webkit-box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
+-moz-box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
+box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3); }
+        #bigPoster .button 
+        {
+            font-size: 15px !important;
+            width: 180px;
+            margin: 5px 0 0 4px;
+            padding: 4px 10px 6px 10px
+        }
+        #bigPoster .payment-options {
+            font-size: 12px;
+            color: #828282;
+            text-align: center;
+            margin: 5px 0 0 -15px;
+        }
+        
+        #footer-teaser 
+        {
+            position: relative;
+            width: 500px;
+            margin: 10px auto;
+        }
+        #footer-teaser .pdf-icon
+        { 
+                position: absolute;
+                background: url(../../gfx/sprite_icon_elements.png) no-repeat -497px -502px transparent;
+                width: 84px;
+                height: 84px;
+                display: block
+        }
+        #footer-teaser p { padding: 12px 0 0 100px }
+        #footer-teaser p a { color:  #d40850; text-decoration: underline}
+        

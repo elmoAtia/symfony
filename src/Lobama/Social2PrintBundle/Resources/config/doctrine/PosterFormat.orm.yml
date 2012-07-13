@@ -1,0 +1,42 @@
+Lobama\Social2PrintBundle\Entity\PosterFormat:
+  type: entity
+  table: s2p_bundle_poster_format
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    pid:
+      type: string
+      unique: true
+    name:
+      type: string
+    herotag:
+      type: string
+      nullable: true
+    ksp1:
+      type: string
+      nullable: true
+    ksp2:
+      type: string
+      nullable: true
+    ksp3:
+      type: string
+      nullable: true
+    ksp4:
+      type: string
+      nullable: true
+    ksp5:
+      type: string
+      nullable: true
+    price:
+      type: decimal
+      precision: 6
+      scale: 2
+  oneToMany:
+    PosterOrderIDs:
+      targetEntity: PosterOrderID
+      cascade: ["persist", "delete"]
+      mappedBy: PosterFormat
+  lifecycleCallbacks: {  }

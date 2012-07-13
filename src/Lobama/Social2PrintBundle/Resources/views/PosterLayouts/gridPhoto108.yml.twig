@@ -1,0 +1,74 @@
+{% set cols = 9 %}
+{% set rows = 12 %}
+config:
+  layoutName: gridPhoto108
+  minPhotos: 108
+  maxPhotos: ~
+  visiblePhotos: 108
+  size:
+    cols: {{ cols }}
+    rows: {{ rows }}
+  styles:
+    labelBox:
+      stroke: # rgba (0-255, 0-255, 0-255, 0-1)
+        r: 0
+        g: 62
+        b: 125
+        a: 1
+      fill: #rgba (0-255, 0-255, 0-255, 0-1)
+        r: 0
+        g: 62
+        b: 125
+        a: 1 
+      lineWidthPt: 0.000001 #pt
+      lineWidthPx: 0; #px
+    labelTitle:
+      font: YanoneKaffeesatz-Regular.ttf
+      webfont: Yanone Kaffeesatz
+      encoding: unicode
+      fontsize: 84
+      fill: #rgba
+        r: 255
+        g: 255
+        b: 255
+        a: 1
+      marginh: 0.4
+      marginv: 0.25
+    labelSubTitle:
+      font: YanoneKaffeesatz-Regular.ttf
+      webfont: Yanone Kaffeesatz
+      encoding: unicode
+      fontsize: 48
+      fill: #rgba
+        r: 255
+        g: 255
+        b: 255
+        a: 1
+      marginh: 0.4
+      marginv: 0.6
+labels:
+  -
+    name: posterLabel
+    coords: [5,7]
+    dim: [4,1]
+    style: labelBox
+    textlines:
+      -
+        name: title
+        style: labelTitle
+        value: The Social2Print Poster # Example Data
+      -
+        name: subtitle
+        style: labelSubTitle
+        value: Max Mustermann # Example Data  
+tiles:
+{% for col in range(0, cols-1) %}
+{% for row in range(0, rows-1) %}
+{% if col not in [5,6,7,8] or row not in [7] %}
+  -
+    type: photo
+    coords: [{{ col }},{{ row }}]
+    dim: [1,1]
+{% endif %}
+{% endfor %}
+{% endfor %}

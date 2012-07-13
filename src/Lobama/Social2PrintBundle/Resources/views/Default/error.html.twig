@@ -1,0 +1,20 @@
+{% extends 'LobamaSocial2PrintBundle::layout.html.twig' %}
+
+{% block breadcrumbs %}
+    {% include 'LobamaSocial2PrintBundle:Default:breadcrumbs.html.twig' with {'current': 'preview'} %}
+{% endblock %}
+
+
+{% block body %}
+<div class="content landing">
+    <div class="inner">
+        <div class="poster">
+            <img src="{{ asset('bundles/lobamaposter/gfx/landing.poster.png') }}" alt="">
+        </div>
+        <div id="welcome">
+            <h1>{% trans %}You do not have enough pictures for the chosen poster!{% endtrans %}</h1>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+{% endblock %}

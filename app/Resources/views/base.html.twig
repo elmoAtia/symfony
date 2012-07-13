@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+        <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                <title>{% block title %}Your Facebook Poster - Social2Print{% endblock %}</title>
+
+                 {% block stylesheets %}
+                                <link rel="stylesheet" href="{{ asset('bundles/lobamasocial2print/styles/debug/base.css') }}">
+                <link rel="stylesheet" href="{{ asset('bundles/lobamasocial2print/styles/debug/s2pPoster.css') }}">
+                 {% endblock %}
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+        </head>
+
+        <body>
+                <div id="container">
+                        <div id="main" role="main">
+                                <div class="header">
+                    <div class="logo-container"><span class="logo"></span></div>
+                    {% block breadcrumbs %}{% endblock %}
+                </div>
+
+                                {% block body %}{% endblock %}
+
+                                <!-- Main Layout : footer -->
+				{% block footer %}
+                                <div class="footer">
+                                        <ul class="links">
+                                                <li class="back"><a href="http://facebook.com/social2print" target="_top">{% trans %}Return to Fanpage{% endtrans %}</a></li>
+                                                <li class="back"><a href="{{ logout_url }}" target="_top">{% trans %}Logout{% endtrans %}</a></li>
+                                        </ul>
+                                </div>
+                                {% endblock %}
+                                <!-- Main Layout : footer -->
+
+                        </div>
+                </div>
+        {% block javascripts %}
+        {% endblock %}
+        {% if app.environment == "dev" %}
+        {% if debug is defined %}
+        {% block debug %}
+                <table>
+                {% for key, debug_item in debug %}
+                        <tr>
+                                <td><strong>{{ key }}</strong></td>
+        <td>{{ debug_item | raw }}</td>
+                        </tr>
+    {% endfor %}
+                <table>
+        {% endblock %}
+        {% endif %}
+        {% endif %}
+        </body>
+</html>

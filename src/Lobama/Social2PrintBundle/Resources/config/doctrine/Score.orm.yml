@@ -1,0 +1,24 @@
+Lobama\Social2PrintBundle\Entity\Score:
+  type: entity
+  table: s2p_basic_score
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    origin_object_id:
+      type: string
+      length: '50'
+  manyToOne:
+    ScoreType:
+      targetEntity: ScoreType
+      cascade: ["persist"]
+      inversedBy: Scores
+    Photo:
+      targetEntity: Photo
+      cascade: { }
+      inversedBy: Scores
+      onDelete: CASCADE
+  lifecycleCallbacks: {  }
+

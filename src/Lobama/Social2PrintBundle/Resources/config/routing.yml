@@ -1,0 +1,48 @@
+#LobamaSocial2PrintBundle_homepage:
+#    pattern:  /hello/{name}
+#    defaults: { _controller: LobamaSocial2PrintBundle:Default:index }
+
+_index:
+     pattern:  /
+     defaults: { _controller: LobamaSocial2PrintBundle:Default:index }
+
+_parse:
+     pattern:  /parse
+     defaults: { _controller: LobamaSocial2PrintBundle:Default:parse }
+
+_logout:
+     pattern:  /logout
+     defaults: { _controller: LobamaSocial2PrintBundle:Default:logout }
+
+_product:
+     pattern:  /product
+     defaults: { _controller: LobamaSocial2PrintBundle:Default:product }
+
+_options:
+     pattern:  /options
+     defaults: { _controller: LobamaSocial2PrintBundle:Default:options }
+
+_loading:
+     pattern:  /loading
+     defaults: { _controller: LobamaSocial2PrintBundle:Default:loading }
+
+_create_poster:
+    pattern:   /create
+    defaults:  { _controller: LobamaSocial2PrintBundle:Default:createPoster }
+
+_service:
+    pattern:   /service
+    defaults:  { _controller: LobamaSocial2PrintBundle:Default:service }
+
+_preview:
+    pattern:   /preview
+    defaults:  { _controller: LobamaSocial2PrintBundle:Default:preview }
+
+_loading_progress:
+    pattern:  /loading_progress 
+    defaults: { _controller: LobamaSocial2PrintBundle:Default:loadingProgress, _format: json }
+    requirements: { _format: (xml|json), _method: GET }
+
+_not_enough_photos:
+  pattern:  /not-enough-photos
+  defaults: { _controller: LobamaPosterBundle:Default:notEnoughPhotos }

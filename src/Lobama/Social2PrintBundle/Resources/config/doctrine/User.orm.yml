@@ -1,0 +1,30 @@
+# src/Lobama/Social2Print/Resources/config/doctrine/User.orm.yml
+Lobama\Social2PrintBundle\Entity\User:
+  type: entity
+  table: s2p_basic_user
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    username:
+      type: string
+      length: 255
+      unique: true
+      nullable: true
+    facebookuid:
+      type: bigint
+    name:
+      type: string
+      length: '255'
+    locale:
+      type: string
+      length: '2'
+    email:
+      type: string
+      length: '255'
+    third_party_id:
+      type: string
+      length: '255'
+  lifecycleCallbacks: {  }

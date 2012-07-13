@@ -1,0 +1,26 @@
+<html>
+<head>
+<script>
+</script>
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('bundles/lobamasocial2print/styles/debug/base.css') }}">
+{% endblock %}
+</head>
+<body>
+Hello {{name}}!
+<a href="{{logout_url}}">Logout</a><br />
+{% if page-1 > 1 %}
+<a class="prev" href="http://www.lobama.com/Symfony/web/app_dev.php?page={{page - 2}}"><<</a>
+{% endif %}
+{% if iter == 19 %}
+<a class="next" href="http://www.lobama.com/Symfony/web/app_dev.php?page={{page}}">>></a>
+{% endif %}
+{% for i in 0..iter %}
+<div class="img{{i}}">
+<img src="{{photos[i]['src']}}" /><br />
+Likes {{photos[i]['likes']}}<br />
+Comments {{photos[i]['comments']}}
+</div>
+{% endfor %}
+</body>
+</html>

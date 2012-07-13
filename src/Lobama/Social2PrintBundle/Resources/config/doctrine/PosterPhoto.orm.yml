@@ -1,0 +1,30 @@
+Lobama\Social2PrintBundle\Entity\PosterPhoto:
+  type: entity
+  table: s2p_bundle_poster_photo
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    TileCoords: 
+      type: array
+    TileDim: 
+      type: array
+    PhotoScale:
+      type: float
+      default: 1
+    PhotoOrientation:
+      type: string
+    PhotoOffset:
+      type: array
+  manyToOne:
+    Poster:
+      targetEntity: Poster
+      cascade: []
+      inversedBy: PosterPhotos
+    Photo:
+      targetEntity: Lobama\Social2PrintBundle\Entity\Photo
+      cascade: []
+      mappedBy: PosterPhoto
+  lifecycleCallbacks: {  }

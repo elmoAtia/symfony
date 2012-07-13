@@ -1,0 +1,54 @@
+Lobama\Social2PrintBundle\Entity\Photo:
+  type: entity
+  table: s2p_basic_photo
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    object_id:
+      type: bigint
+      unique: true
+    pid:
+      type: string
+      length: '50'
+      unique: true
+    aid:
+      type: string
+      length: '50'
+    album_object_id:
+      type: bigint
+    owner:
+      type: string
+      length: '50'
+    created:
+      type: datetime
+      nullable: true
+    modified_last:
+      type: datetime
+      nullable: true
+    images:
+      type: array
+    local_preview_image:
+      type: string
+      nullable: true
+  indexes:
+      object_id:
+        columns: [object_id]
+      album_object_id:
+        columns: [album_object_id]
+      owner:
+        columns: [owner]
+  manyToOne:
+    Album:
+      targetEntity: Album
+      cascade: []
+      inversedBy: Photos
+      onDelete: CASCADE
+  oneToMany:
+    Scores:
+      targetEntity: Score
+      cascade: ["persist"]
+      mappedBy: Photo
+  lifecycleCallbacks: {  }

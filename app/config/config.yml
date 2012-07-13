@@ -1,0 +1,97 @@
+imports:
+    - { resource: parameters.ini }
+    - { resource: security.yml }
+
+framework:
+    #esi:             ~
+    translator:      { fallback: %locale% }
+    secret:          %secret%
+    charset:         UTF-8
+    router:          { resource: "%kernel.root_dir%/config/routing.yml" }
+    form:            true
+    csrf_protection: true
+    validation:      { enable_annotations: true }
+    templating:      { engines: ['twig', 'php'] } #assets_version: SomeVersionScheme
+    session:
+        default_locale: %locale%
+        auto_start:     true
+
+# Twig Configuration
+twig:
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug%
+
+# Assetic Configuration
+assetic:
+    debug:          %kernel.debug%
+    use_controller: false
+    # java: /usr/bin/java
+    filters:
+        cssrewrite: ~
+        # closure:
+        #     jar: %kernel.root_dir%/java/compiler.jar
+        # yui_css:
+        #     jar: %kernel.root_dir%/java/yuicompressor-2.4.2.jar
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   %database_driver%
+        host:     %database_host%
+        port:     %database_port%
+        dbname:   %database_name%
+        user:     %database_user%
+        password: %database_password%
+        charset:  UTF8
+
+    orm:
+        auto_generate_proxy_classes: %kernel.debug%
+        default_entity_manager: default
+        entity_managers:
+            default:
+                connection: default
+                mappings:
+                    LobamaSocial2PrintBundle: ~
+                    
+# Swiftmailer Configuration
+swiftmailer:
+    transport: %mailer_transport%
+    host:      %mailer_host%
+    username:  %mailer_user%
+    password:  %mailer_password%
+
+jms_security_extra:
+    secure_controllers:  true
+    secure_all_services: false
+
+fos_facebook:
+    file:   %kernel.root_dir%/../vendor/facebook/src/base_facebook.php
+    alias:  facebook
+    app_id: 121619647922466
+    secret: a59fd2e83a1d96109a93b0460a95bcb9
+    cookie: true
+    permissions: [email, user_birthday, user_location]
+
+parameters:
+    poster_layouts:       ['gridPhoto54','gridPhoto108']
+    poster_canvas_max_size_px:  # Poster Preview Size in px
+      width: 396 
+      height: 594
+    poster_photo_facebook_preview_size: 6
+    poster_photo_facebook_original_size: 0
+    poster_photo_dpi_limit: 150 # default 150 DPI 
+    poster_reference_dpi: 150 # default 150 DPI 
+    poster_reference_size_cm: # This is the reference size of the poster we create. All values in cm!
+      width: 27.9 # (A3)
+      height: 42.0 # (A3)
+    poster_query_engine_photo_limit: 150
+    pdflib_licensekey: L800102-010500-740478-V87WF2-M65G22
+    pdf_creator: Social2Print
+    pdf_author: Social2Print
+    pdf_title: The Facebook Poster
+    image_temp_folder: /tmp/
+    label_public_folder:  %kernel.root_dir%/../web/prints/poster_label/
+    preview_image_public_folder: %kernel.root_dir%/../web/preview_images/
+    poster_thumb_public_folder: %kernel.root_dir%/../web/thumb_poster/
+    pdf_poster_folder: /tmp/
+    image_poster_folder: /tmp/

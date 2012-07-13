@@ -1,0 +1,7 @@
+parameters:
+    facebook_user_provider.class: Lobama\BasicBundle\Security\User\FacebookUserProvider
+
+services:
+    facebook_user_provider:
+        class: %facebook_user_provider.class%
+

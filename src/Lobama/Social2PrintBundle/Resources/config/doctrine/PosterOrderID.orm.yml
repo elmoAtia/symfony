@@ -1,0 +1,19 @@
+Lobama\Social2PrintBundle\Entity\PosterOrderID:
+  type: entity
+  table: s2p_bundle_poster_orderid
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    provider:
+      type: string
+    orderid:
+      type: string
+  manyToOne:
+    PosterFormat:
+      targetEntity: PosterFormat
+      cascade: { }
+      inversedBy: PosterOrderIDs
+  lifecycleCallbacks: {  }

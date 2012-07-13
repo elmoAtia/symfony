@@ -1,0 +1,35 @@
+Lobama\Social2PrintBundle\Entity\Album:
+  type: entity
+  table: s2p_basic_album
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    object_id:
+      type: bigint
+      unique: true
+    aid:
+      type: string
+      length: '50'
+    cover_object_id:
+      type: bigint
+    owner:
+      type: bigint
+    modified_major:
+      type: datetime
+    kind:
+      type: string
+      length: '255'
+  indexes:
+      object_id:
+        columns: [object_id]
+      owner:
+        columns: [owner]
+  oneToMany:
+    Photos:
+      targetEntity: Photo
+      cascade: ["persist"]
+      mappedBy: Album
+  lifecycleCallbacks: {  }

@@ -1,0 +1,80 @@
+{% extends 'LobamaSocial2PrintBundle::layout.html.twig' %}
+
+{% block breadcrumbs %}
+    {% include 'LobamaSocial2PrintBundle:Default:breadcrumbs.html.twig' with {'current': 'preview'} %}
+{% endblock %}
+
+
+
+{% block body %}
+<div class="content preview">
+    <div id="posterPreview"></div>
+    <div class="inner">
+        <h1>Your Poster</h1>
+        <p class="teaser-text"></p>
+        {# Options box
+        <div class="opt-cont">
+            <h2>Options</h2>
+            <div class="icon iconDiscard">&nbsp;</div>
+            <div class="clearfix"></div>
+            <div class="opt">
+                <ul>
+                    <li class="title">
+                        <label for="title-edit">Enter title</label>
+                        <input type="text" name="title-edit" value="The Facebook Poster">
+                    </li>
+                    <li class="subtitle">
+                        <label for="subtitle-edit">Enter subtitle</label>
+                        <input type="text" name="subtitle-edit" value="from Max Mustermann">
+                    </li>
+                </ul>
+                <div class="opt-footer">
+                    <div class="kill-title">&nbsp;</div>
+                    <div class="update-title">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+        #}
+        <div class="continue"><a href="{{ path('_checkout') }}" class="button">Next<span></span></a></div>
+        <div class="clearfix"></div>
+    </div>  
+    <div class="clearfix"></div>
+</div>
+{% endblock %}
+
+
+{% block javascripts %}
+<script src="{{ asset('bundles/lobamaposter/scripts/debug/libs/yepnope.min.js') }}"></script>
+<!--
+-    Load custom scripts
+-    Learn more about yepnope resources Loader: http://yepnopejs.com/
+-->
+<script> 
+yepnope([{
+load: '//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js',
+complete: function () { !window.jQuery ? yepnope('{{ asset('bundles/lobamaposter/scripts/debug/libs/jquery-1.7.min.js') }}') : null }
+}, {
+load: '{{ asset('bundles/lobamaposter/scripts/debug/s2p.js') }}',
+complete: function () {
+  
+// var jsonPath = '../testData/json/new_json.json';  
+// jQuery.getJSON(jsonPath, function(data) {
+//var posterData = data;
+
+        var posterData  = {{json|raw}};
+        s2p.init('POSTER_PREVIEW', {
+            container           : '#container',
+            baseURI             : '{{ path('_service') }}',
+            assetBaseURL        : '../bundles/lobamaposter/',
+            dir                 : 'debug/',
+            previewPageURL      : '{{ path('_preview') }}',
+            getProgressURL      : '{{ path('_loading_progress') }}',
+            getCollectURL       : '{{ path('_create_poster') }}',
+            fadeTime            : 440,
+            version             : '0.9.6'
+        }, posterData);
+  
+}
+}]);
+</script>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'LobamaSocial2PrintBundle::layout.html.twig' %}
+
+{% block body %}
+<div class="product">
+<form action="options">
+<fieldset>
+<legend>Product:</legend>
+<input type="radio" name="product" value="poster" checked="true" /> Poster <br />
+<input type="radio" name="product" value="book/magazine" disabled="disabled" /> Book/Magazine <br />
+<input type="radio" name="product" value="card" disabled="disabled" /> Card <br/>
+<input type="radio" name="product" value="newspaper" disabled="disabled" /> Newspaper <br />
+</fieldset>
+<input type="submit" name="product" value="Submit">
+</form>
+</div>
+{% endblock %}

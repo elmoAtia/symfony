@@ -1,0 +1,17 @@
+<html>
+<head>
+<script>
+</script>
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('bundles/lobamasocial2print/styles/debug/base.css') }}">
+{% endblock %}
+</head>
+<body>
+{% if(name and logout_url) %}
+Hello {{name}}!
+
+<a href="{{logout_url}}">Logout</a><br />
+{% endif %}
+<div class="poster"></div>
+</body>
+</html>

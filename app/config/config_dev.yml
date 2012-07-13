@@ -1,0 +1,42 @@
+imports:
+    - { resource: config.yml }
+
+framework:
+    router:   { resource: "%kernel.root_dir%/config/routing_dev.yml" }
+    profiler: { only_exceptions: false }
+
+web_profiler:
+    toolbar: true
+    intercept_redirects: false
+
+monolog:
+    handlers:
+        main:
+            type:  stream
+            path:  %kernel.logs_dir%/%kernel.environment%.log
+            level: info
+        firephp:
+            type:  firephp
+            level: info
+
+assetic:
+    use_controller: true
+
+fos_facebook:
+    file:   %kernel.root_dir%/../vendor/facebook/src/base_facebook.php
+    alias:  facebook
+    app_id: 121619647922466
+    secret: a59fd2e83a1d96109a93b0460a95bcb9
+    cookie: true
+    permissions: [email, user_birthday, user_location]
+
+parameters:
+    facebook_page_url:    "http://www.facebook.com/social2print"
+    facebook_app_id:      121619647922466
+    facebook_secret:      a59fd2e83a1d96109a93b0460a95bcb9
+    facebook_app_url:     "http://apps.facebook.com/spothoptest"
+    facebook_app_sec_url: "https://apps.facebook.com/spothoptest"
+    #label_public_folder:  %kernel.root_dir%/../web/prints/poster_label/
+    #preview_image_public_folder: %kernel.root_dir%/../web/preview_images/
+    #poster_thumb_public_folder: %kernel.root_dir%/../web/thumb_poster/
+    pdflib_licensekey: L800102-010500-740478-V87WF2-M65G22

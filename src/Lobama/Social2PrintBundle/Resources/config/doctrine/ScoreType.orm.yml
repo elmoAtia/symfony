@@ -1,0 +1,24 @@
+Lobama\Social2PrintBundle\Entity\ScoreType:
+  type: entity
+  table: s2p_basic_score_type
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    origin:
+      type: string
+      length: '20'
+    name:
+      type: string
+      length: '20'
+    factor:
+      type: integer
+  oneToMany:
+    Scores:
+      targetEntity: Score
+      cascade: ["persist", "delete"]
+      mappedBy: ScoreType
+  lifecycleCallbacks: {  }
+

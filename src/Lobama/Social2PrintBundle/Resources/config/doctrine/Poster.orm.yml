@@ -1,0 +1,34 @@
+Lobama\Social2PrintBundle\Entity\Poster:
+  type: entity
+  table: s2p_bundle_poster
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    config:
+      type: array
+    labels:
+      type: array
+    image:
+      type: string
+      length: '255'
+      nullable: true
+    pdf:
+      type: string
+      length: '255'
+      nullable: true
+    status:
+      type: string  # previw: new computed maybe modified by user but not approved; fixed: A poster get 'fixed', when the user finishes the preview editor by entering the checkout; purchased_paymentstatus: after purchase
+  manyToOne:
+    User:
+      targetEntity: Lobama\Social2PrintBundle\Entity\User
+      cascade: { }
+      inversedBy: Posters
+  oneToMany:
+    PosterPhotos:
+      targetEntity: PosterPhoto
+      cascade: ["persist", "delete"]
+      mappedBy: Poster
+  lifecycleCallbacks: {  }

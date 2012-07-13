@@ -1,0 +1,29 @@
+{% extends 'LobamaSocial2PrintBundle::layout.html.twig' %}
+
+{% block body %}
+<div class="content landing">
+    <div class="inner">
+        <div class="poster">
+            <img src="{{ asset('bundles/lobamasocial2print/gfx/landing.poster.png') }}" alt="">
+        </div>
+        <div id="welcome">
+            <h1>{% trans %}Your Facebook Poster{% endtrans %}</h1>
+            <div id="arrow-bottom">&nbsp;</div>
+            <div class="teaser-text">
+                <p>{% trans %}How it works{% endtrans %}:</p>
+                <ol>
+		    <li>{% trans %}Choose your options.{% endtrans %}</li>
+                    <li>{% trans %}Modify the preview or press next.{% endtrans %}</li>
+                    <li>{% trans %}Select your poster size.{% endtrans %}</li>
+                </ol>
+            </div>
+            <div class="continue">
+                <a href="{{ path('_product') }}" class="button">{% trans %}Generate poster now{% endtrans %}</a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+{% endblock %}
+
